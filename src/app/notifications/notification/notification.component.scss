@@ -1,0 +1,47 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins/breakpoints';
+
+.app-notification {
+
+  padding: 16px;
+  margin-bottom: 10px;
+
+  &__avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  &__default-content {
+
+    margin-left: 14px;
+
+    @include media-breakpoint-up(sm) {
+      margin-left: 16px;
+    }
+  }
+
+  &__image {
+    width: 45px;
+    height: 45px;
+  }
+
+  &__message {
+
+    margin-left: calc(45px + 1rem);
+    margin-top: 6px;
+    padding: 18px 16px;
+
+    @include media-breakpoint-up(sm) {
+      margin-top: 8px;
+      padding: 18px 18px;
+    }
+  }
+}
+
+// override anchors
+
+a.app-notification__message:hover {
+  color: var(--bs-secondary-color) !important;
+  background: var(--bs-primary-bg-subtle) !important;
+}
