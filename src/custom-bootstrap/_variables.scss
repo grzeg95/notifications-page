@@ -1,2 +1,31 @@
 // Include any default variable overrides here
 
+@import 'global-variables';
+
+
+// Body
+$body-bg: $_light-grayish-blue-1;
+$body-color: $_very-dark-blue;
+$body-secondary-color: $_dark-grayish-blue;
+$body-tertiary-color: $_grayish-blue;
+
+
+// Theme-color-variables
+$primary: $_blue;
+
+
+// Links
+$link-hover-color: $primary;
+
+
+// Fonts
+$font-weight-bolder: 800;
+
+
+// Background
+$primary-bg-subtle: $_light-grayish-blue-2;
+$secondary-bg-subtle: $_very-light-grayish-blue;
+
+
+// Color system
+$white: $_white;
