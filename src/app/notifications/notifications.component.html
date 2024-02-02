@@ -5,7 +5,12 @@
   </div>
 
   @if (unreadNotifications()) {
-    <div (click)="markAllAsRead()" class="link fw-medium small text-body-secondary text-decoration-none">
+    <div
+      (click)="markAllAsRead()"
+      tabindex="0"
+      (keydown)="handleMarkAllAsReadyKeydown($event)"
+      class="link fw-medium small text-body-secondary text-decoration-none"
+    >
       Mark all as read
     </div>
   }

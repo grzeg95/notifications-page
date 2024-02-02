@@ -140,4 +140,10 @@ export class NotificationsComponent {
       return notifications;
     });
   }
+
+  handleMarkAllAsReadyKeydown($event: KeyboardEvent) {
+    if ($event.code === 'Enter') {
+      this.markAllAsRead();
+    }
+  }
 }
