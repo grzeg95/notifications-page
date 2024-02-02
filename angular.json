@@ -34,6 +34,7 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
+                "node_modules",
                 "src"
               ]
             }
