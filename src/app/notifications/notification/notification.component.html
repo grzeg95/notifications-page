@@ -26,7 +26,10 @@
 
           <!-- To Whom -->
           @if (toWhom === 'you') {
-            {{ 'you' }}
+            <span class="d-inline-block">
+              {{ 'you' }}
+              <ng-container *ngTemplateOutlet="redDotIndicator"/>
+            </span>
           }
         }
 
@@ -35,7 +38,10 @@
 
           <!-- To Whom -->
           @if (toWhom === 'you') {
-            {{ 'you' }}
+            <span class="d-inline-block">
+              {{ 'you' }}
+              <ng-container *ngTemplateOutlet="redDotIndicator"/>
+            </span>
           }
         }
 
@@ -79,7 +85,12 @@
         @if (on === 'post') {
           {{ 'post' }}
 
-          <a class="d-inline-block fw-bolder text-decoration-none text-body-secondary" [routerLink]="content?.link">{{ content?.value }}</a>
+          <span class="d-inline-block">
+            <a class="fw-bolder text-decoration-none text-body-secondary" [routerLink]="content?.link">
+              {{ content?.value }}
+            </a>
+            <ng-container *ngTemplateOutlet="redDotIndicator"/>
+          </span>
         }
 
         @if (on === 'person') {
@@ -89,19 +100,26 @@
         @if (on === 'group') {
           {{ 'group' }}
 
-          <a class="d-inline-block fw-bolder text-decoration-none" [routerLink]="content?.link">{{ content?.value }}</a>
+          <span class="d-inline-block">
+            <a class="fw-bolder text-decoration-none" [routerLink]="content?.link">
+              {{ content?.value }}
+            </a>
+            <ng-container *ngTemplateOutlet="redDotIndicator"/>
+          </span>
         }
 
         @if (on === 'picture') {
-          {{ 'picture' }}
+          <span class="d-inline-block">
+            {{ 'picture' }}
+            <ng-container *ngTemplateOutlet="redDotIndicator"/>
+          </span>
         }
 
         @if (type === 'message') {
-          {{ 'private message' }}
-        }
-
-        @if (unread) {
-          <span>{{ ' ' }}</span><div class="red-indicator-dot"></div>
+          <span class="d-inline-block">
+            {{ 'private message' }}
+            <ng-container *ngTemplateOutlet="redDotIndicator"/>
+          </span>
         }
 
       </span>
@@ -129,3 +147,9 @@
     {{ content?.value }}
   </a>
 }
+
+<ng-template #redDotIndicator>
+  @if (unread) {
+    <span>{{ ' ' }}</span><div class="red-indicator-dot"></div>
+  }
+</ng-template>
