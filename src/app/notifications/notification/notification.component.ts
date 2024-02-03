@@ -1,3 +1,4 @@
+import {NgTemplateOutlet} from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -16,7 +17,8 @@ import {EventContent, EventDate, EventOn, EventPerson, EventRead, EventToWhom, E
   selector: 'app-notification',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    NgTemplateOutlet
   ],
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.scss',
