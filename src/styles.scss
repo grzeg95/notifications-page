@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import 'custom-bootstrap/styles';
+
+
+// override body
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+// create .link based on a
+
+.link {
+
+  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  text-decoration: underline;
+  cursor: pointer;
+
+  &.text-body-secondary:hover {
+    color: rgba(var(--bs-link-hover-color-rgb), var(--bs-text-opacity)) !important;
+  }
+}
+
+
+// override anchors
+
+a {
+
+  &.text-body:hover {
+    color: rgba(var(--bs-link-hover-color-rgb), var(--bs-text-opacity)) !important;
+  }
+
+  &.text-body-secondary:hover {
+    color: rgba(var(--bs-link-hover-color-rgb), var(--bs-text-opacity)) !important;
+  }
+}
+
+
+// the rest
+
+.red-indicator-dot {
+  width: 7px;
+  height: 7px;
+  background: $_red;
+  border-radius: 100%;
+  display: inline-block;
+  position: relative;
+}

@@ -1,0 +1,64 @@
+@import 'bootstrap/scss/functions';
+@import 'variables';
+@import 'bootstrap/scss/mixins/breakpoints';
+
+.app-notification {
+
+  padding: 16px;
+  margin-bottom: 10px;
+
+  &__avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  &__default-content {
+
+    margin-left: 14px;
+
+    @include media-breakpoint-up(sm) {
+      margin-left: 16px;
+    }
+  }
+
+  &__image-wrapper {
+
+    width: 45px;
+    height: 45px;
+    position: relative;
+
+    &:hover::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid transparentize($body-tertiary-color, 0.2);
+      border-radius: 7px;
+    }
+
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  &__message {
+
+    margin-left: calc(45px + 1rem);
+    margin-top: 6px;
+    padding: 18px 16px;
+
+    @include media-breakpoint-up(sm) {
+      margin-top: 8px;
+      padding: 18px 18px;
+    }
+  }
+}
+
+// override anchors
+
+a.app-notification__message:hover {
+  color: var(--bs-secondary-color) !important;
+  background: var(--bs-primary-bg-subtle) !important;
+}

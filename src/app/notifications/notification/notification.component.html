@@ -1,0 +1,131 @@
+<div class="d-flex">
+  <img class="app-notification__avatar" [src]='person.avatar' alt="Avatar"/>
+
+  <div class="app-notification__default-content d-flex align-items-start ms-3 w-100">
+
+    <span class="me-3 small text-body-secondary">
+
+      <a [routerLink]="person.link" class="fw-bolder text-decoration-none text-body">{{ person.fullName }}</a>
+
+      <!-- Type -->
+      <!-- To Whom -->
+
+      <span class="fw-medium position-relative">
+
+        @if (type === 'reaction') {
+          {{ 'reacted to' }}
+
+          <!-- To Whom -->
+          @if (toWhom === 'you') {
+            {{ 'your' }}
+          }
+        }
+
+        @if (type === 'follow') {
+          {{ 'followed' }}
+
+          <!-- To Whom -->
+          @if (toWhom === 'you') {
+            {{ 'you' }}
+          }
+        }
+
+        @if (type === 'unfollow') {
+          {{ 'unfollowed' }}
+
+          <!-- To Whom -->
+          @if (toWhom === 'you') {
+            {{ 'you' }}
+          }
+        }
+
+        @if (type === 'comment') {
+          {{ 'commented no' }}
+
+          <!-- To Whom -->
+          @if (toWhom === 'you') {
+            {{ 'your' }}
+          }
+        }
+
+        @if (type === 'joined') {
+          {{ 'has joined' }}
+
+          <!-- To Whom -->
+          @if (toWhom === 'you') {
+            {{ 'your' }}
+          }
+        }
+
+        @if (type === 'left') {
+          {{ 'left' }}
+        }
+
+        @if (type === 'message') {
+          {{ 'sent' }}
+
+          <!-- To Whom -->
+          @if (toWhom === 'you') {
+            {{ 'you' }}
+          }
+        }
+
+        @if (toWhom && toWhom !== 'you') {
+          <a class="d-inline-block fw-bolder text-decoration-none" [routerLink]="toWhom.link">{{ toWhom.link }}</a>
+        }
+
+        <!-- On -->
+
+        @if (on === 'post') {
+          {{ 'post' }}
+
+          <a class="d-inline-block fw-bolder text-decoration-none text-body-secondary" [routerLink]="content?.link">{{ content?.value }}</a>
+        }
+
+        @if (on === 'person') {
+          <!-- To whom -->
+        }
+
+        @if (on === 'group') {
+          {{ 'group' }}
+
+          <a class="d-inline-block fw-bolder text-decoration-none" [routerLink]="content?.link">{{ content?.value }}</a>
+        }
+
+        @if (on === 'picture') {
+          {{ 'picture' }}
+        }
+
+        @if (type === 'message') {
+          {{ 'private message' }}
+        }
+
+        @if (unread) {
+          <span>{{ ' ' }}</span><div class="red-indicator-dot"></div>
+        }
+
+      </span>
+
+      <div class="fw-medium text-body-tertiary">{{ date }}</div>
+
+    </span>
+
+    <!-- On outside text next to -->
+
+    @if (on === 'picture') {
+      <a class="ms-auto app-notification__image-wrapper" [routerLink]="content?.link">
+        <img [src]="content?.value" alt="Photo" />
+      </a>
+    }
+
+  </div>
+
+</div>
+
+<!-- On outside text bellow -->
+
+@if (type === 'message') {
+  <a class="app-notification__message border small rounded fw-medium text-decoration-none text-body-secondary" [routerLink]="content?.link">
+    {{ content?.value }}
+  </a>
+}

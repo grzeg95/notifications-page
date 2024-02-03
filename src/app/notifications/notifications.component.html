@@ -1,0 +1,36 @@
+<div class="app-notifications__header d-flex justify-content-between">
+  <div class="d-flex align-items-center">
+    <div class="fw-bolder">Notifications</div>
+
+    @if (unreadNotifications()) {
+      <div class="badge app-notifications__header__badge fw-bolder bg-primary">{{ unreadNotifications() }}</div>
+    }
+  </div>
+
+  @if (unreadNotifications()) {
+    <div
+      (click)="markAllAsRead()"
+      tabindex="0"
+      (keydown)="handleMarkAllAsReadyKeydown($event)"
+      class="link fw-medium small text-body-secondary text-decoration-none"
+    >
+      Mark all as read
+    </div>
+  }
+</div>
+
+<div class="d-flex flex-column">
+
+  @for (notification of notifications(); track notification) {
+
+    <app-notification
+      [read]="notification.read"
+      [person]="notification.person"
+      [type]="notification.type"
+      [on]="notification.on"
+      [toWhom]="notification.toWhom"
+      [content]="notification.content"
+      [date]="notification.date"
+    />
+  }
+</div>
