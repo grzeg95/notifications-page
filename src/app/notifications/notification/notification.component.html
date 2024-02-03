@@ -113,8 +113,8 @@
     <!-- On outside text next to -->
 
     @if (on === 'picture') {
-      <a class="ms-auto" [routerLink]="content?.link">
-        <img class="app-notification__image" [src]="content?.value" alt="Photo" />
+      <a class="ms-auto app-notification__image-wrapper" [routerLink]="content?.link">
+        <img [src]="content?.value" alt="Photo" />
       </a>
     }
 
