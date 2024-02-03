@@ -1,7 +1,10 @@
 <div class="app-notifications__header d-flex justify-content-between">
   <div class="d-flex align-items-center">
     <div class="fw-bolder">Notifications</div>
-    <div class="badge app-notifications__header__badge fw-bolder bg-primary">{{ unreadNotifications() }}</div>
+
+    @if (unreadNotifications()) {
+      <div class="badge app-notifications__header__badge fw-bolder bg-primary">{{ unreadNotifications() }}</div>
+    }
   </div>
 
   @if (unreadNotifications()) {

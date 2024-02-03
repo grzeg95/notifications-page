@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, signal, ViewEncapsulation} from '@angular/core';
 import {Event} from '../models/event';
 import {NotificationComponent} from './notification/notification.component';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-notifications',
@@ -131,14 +132,13 @@ export class NotificationsComponent {
   ]);
 
   unreadNotifications = computed(() => {
-    return this.notifications().reduce((previousValue, notification) => previousValue + (notification.read ? 1 : 0), 0);
+    return this.notifications().reduce((previousValue, notification) => previousValue + (notification.read ? 0 : 1), 0);
   })
 
   markAllAsRead() {
-    this.notifications.update((notifications) => {
-      notifications.forEach((notification) => notification.read = true);
-      return notifications;
-    });
+    const notifications = _.cloneDeep(this.notifications());
+    notifications.forEach((notification) => notification.read = true);
+    this.notifications.set(notifications);
   }
 
   handleMarkAllAsReadyKeydown($event: KeyboardEvent) {
