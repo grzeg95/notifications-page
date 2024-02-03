@@ -1,6 +1,16 @@
 // Include any default variable overrides here
 
-@import 'global-variables';
+
+// Variables from design
+$_red: hsl(1, 90%, 64%);
+$_blue: hsl(219, 85%, 26%);
+$_white: hsl(0, 0%, 100%);
+$_very-light-grayish-blue: hsl(210, 60%, 98%);
+$_light-grayish-blue-1: hsl(211, 68%, 94%);
+$_light-grayish-blue-2: hsl(205, 33%, 90%);
+$_grayish-blue: hsl(219, 14%, 63%);
+$_dark-grayish-blue: hsl(219, 12%, 42%);
+$_very-dark-blue: hsl(224, 21%, 14%);
 
 
 // Body
@@ -29,3 +39,8 @@ $secondary-bg-subtle: $_very-light-grayish-blue;
 
 // Color system
 $white: $_white;
+
+
+// DO NOT REMOVE
+// Import bootstrap variables
+@import 'bootstrap/scss/variables';
